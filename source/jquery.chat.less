@@ -1,0 +1,164 @@
+/**%
+ * Chat - jQuery plugin 1.0.0
+ * a simple client plugin to display the chat or discuss data and
+ * ajax request to submit data.
+ * this is depend on bootstrap.less
+ **/
+ 
+@import "../bootstrap/less/bootstrap.less";
+
+@backgroundImg:			"bg.jpg";
+@background:			@grayLighter;
+@width:					700px;
+@height:				500px;
+@padding:				@baseFontSize - 8px;
+@margin:				@padding;
+@borderWidth:			1px;
+
+@inputHeight:			120px;
+@triSize:				10px;
+@triTop:				10px;
+@msgColor:				@green;
+@msgBgColor:			lighten(@green,20%);
+@iconSize:				40px;
+
+
+.center{
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+}
+.border(@color:@gray){
+	border:@borderWidth solid @color;
+}
+.red{
+	color:red;
+}
+.right{
+	float:right;
+}
+.left{
+	float:left;
+}
+body{
+	margin:10px;
+}
+.chat{
+	.center;
+	width:@width;
+	height:@height;
+	position:relative;
+}
+.bg-img{
+	width:@width;
+	height:@height;
+	position:absolute;
+}
+.chat-panel{
+	position:relative;
+	z-index:10;
+	padding:5px;
+	height:@height - @padding*2 - @borderWidth*4;
+}
+.chat-info{
+	height:@height - @inputHeight - @padding*3;
+	overflow-y:auto;
+	overflow-x:hidden;
+	ul.msg-list{
+		list-style:none;
+		margin:@margin;
+		li.msg-item{
+			margin:@margin;
+			padding:@padding;
+			.clearfix;
+			img{
+				border:2px solid @grayLight;
+				width:@iconSize;
+				height:@iconSize;
+			}
+			.msg-info{
+				position:relative;
+				margin-left:@triSize;
+				margin-right:@triSize;
+				max-width:70%;
+				.border-radius(6px);
+				background-color:@msgColor;
+				border:1px solid @msgBgColor;
+				padding:@padding;
+				.msg{
+					margin:@margin;
+				}
+			}
+		}
+	}
+}
+.chat-input{
+	margin-top:@margin;
+	height:@inputHeight;
+	.input{
+		height:@inputHeight - @padding*2 - 40px;
+		width:@width - @padding*4 - @borderWidth*4;
+		resize:none;
+	}
+	.chat-send{
+		button{
+			float:right;
+			margin-right:@padding;
+		}
+		.input-info{
+			float:left;
+			color:@green;
+			margin-left:@padding;
+		}
+	}
+}
+
+.triIcon-right{
+	border-top:@triSize dashed transparent;
+    border-bottom:@triSize dashed transparent;
+	border-left:@triSize solid @msgColor;
+	height:0;
+    top:@triTop;
+    line-height:0;
+    position:absolute;
+    right:0 - @triSize;
+    width:0;
+	z-index:10000;
+}
+.triIconOuter-right{
+	border-top:@triSize + 1px dashed transparent;
+    border-bottom:@triSize + 1px dashed transparent;
+	border-left:@triSize + 1px solid @msgBgColor;
+	height:0;
+    top:@triTop - 1px;
+    line-height:0;
+    position:absolute;
+    right:0 - @triSize - 1px;
+    width:0;
+	z-index:9990;
+}
+
+.triIcon-left{
+	border-top:@triSize dashed transparent;
+    border-bottom:@triSize dashed transparent;
+	border-right:@triSize solid @msgColor;
+	height:0;
+    top:@triTop;
+    line-height:0;
+    position:absolute;
+    left:0 - @triSize;
+    width:0;
+	z-index:10000;
+}
+.triIconOuter-left{
+	border-top:@triSize + 1px dashed transparent;
+    border-bottom:@triSize + 1px dashed transparent;
+	border-right:@triSize + 1px solid @msgBgColor;
+	height:0;
+    top:@triTop - 1px;
+    line-height:0;
+    position:absolute;
+    left:0 - @triSize - 1px;
+    width:0;
+	z-index:9990;
+}
