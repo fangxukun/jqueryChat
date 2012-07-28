@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="assets/css/jquery.chat.css" rel="stylesheet">
+		<script type="text/javascript" src="assets/js/jquery-1.7.2.js"></script>
+		<script type="text/javascript" src="assets/js/jquery.chat.js"></script>
+	</head>
+	
+	<script>
+		$(document).ready(function(){			
+			$(".myChat").chat({
+				backgroundImg:"assets/img/bg.jpg",
+				defaultIcon:"assets/img/icon-default.jpg",
+				currentUserIcon:"assets/img/icon-default.jpg",
+				messageAjaxUrl:""
+			});
+		});
+	</script>
+	<body>
+		<div id="myChat" class="chat"></div>
+	</body>
+</html>
